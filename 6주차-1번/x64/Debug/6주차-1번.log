@@ -1,5 +1,5 @@
 ﻿  6-1.cpp
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\6주차-1번\6-1.cpp(8,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\JH\Desktop\코테\rookiss\220901algorithm\6주차-1번\6-1.cpp(50,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\JH\Desktop\코테\rookiss\220901algorithm\6주차-1번\6-1.cpp(36): warning C4715: 'rFE': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\6주차-1번\6-1.cpp(48,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\6주차-1번\6-1.cpp(34): warning C4715: 'rFE': 모든 제어 경로에서 값을 반환하지는 않습니다.
   6주차-1번.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\6주차-1번.exe
