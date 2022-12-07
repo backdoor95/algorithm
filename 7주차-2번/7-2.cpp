@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #define NoSuchKey 404404
 typedef struct TreeNode {
-	int key;
+	int key, height;
 	struct TreeNode* parent;
 	struct TreeNode* left;
 	struct TreeNode* right;
@@ -92,23 +92,146 @@ void expandExternal(TreeNode* z)
 
 	L->left = NULL;
 	L->right = NULL;
+	L->parent = z;
+	L->height = 0;
 	R->left = NULL;
 	R->right = NULL;
-	L->parent = z;
 	R->parent = z;
+	R->height = 0;
+
 	z->left = L;
 	z->right = R;
+	z->height = 1;
 	return;
 }
-void insertItem(TreeNode* root, int key)
+bool isBalanced(TreeNode* w)
 {
-	TreeNode* w = treeSearch(root, key);
+	int n = w->left->height - w->right->height;
+	if (n < 0)
+	{
+		n *= -1;
+		return n < 2;
+	}
+	else {
+		return n < 2;
+	}
+}
+bool updateHeight(TreeNode* w)
+{
+	int max = w->left->height > w->right->height ? w->left->height : w->right->height;
+	int height = max + 1;
+	if (height != w->height)
+	{
+		w->height = height;
+		return true;
+	}
+	else
+		return false;
+}
+TreeNode* restructure(TreeNode** root, TreeNode* x, TreeNode* y, TreeNode* z)
+{
+	// 1.
+	TreeNode* a, * b, * c;
+	TreeNode* t0, * t1, * t2, * t3;
+	if (z->key < y->key && y->key < x->key)
+	{
+		a = z; b = y; c = x;
+		t0 = a->left; t1 = b->left; t2 = c->left; t3 = c->right;
+	}
+	else if (x->key < y->key && y->key < z->key)
+	{
+		a = x; b = y; c = z;
+		t0 = a->left; t1 = a->right; t2 = b->right; t3 = c->right;
+	}
+	else if (z->key < x->key && x->key < y->key)
+	{
+		a = z; b = x; c = y;
+		t0 = a->left; t1 = b->left; t2 = b->right; t3 = c->right;
+	}
+	else
+	{
+		a = y; b = x; c = z;
+		t0 = a->left; t1 = b->left; t2 = b->right; t3 = c->right;
+	}
+	// 2
+	if (isRoot(z))
+	{
+		*root = b;
+		b->parent = NULL;
+	}
+	else if (z->parent->left == z)
+	{
+		z->parent->left = b;
+		b->parent = z->parent;
+	}
+	else if(z->parent->right == z)
+	{
+		z->parent->right = b;
+		b->parent = z->parent;
+	}
+	// 3
+	a->left = t0; a->right = t1;
+	// 4
+	t0->parent = a; t1->parent = a;
+	// 5
+	updateHeight(a);
+	// 6
+	c->left = t2; c->right = t3;
+	// 7
+	t2->parent = c; t3->parent = c;
+	// 8
+	updateHeight(c);
+	// 9 
+	b->left = a; b->right = c;
+	// 10
+	a->parent = b; c->parent = b;
+	// 11
+	updateHeight(b);
+	return b;
+}
+void searchAndFixAfterInsertion(TreeNode** root, TreeNode* w)
+{
+	// Update heights and search for imbalance
+	w->height = 1;
+	w->left->height = 0;
+	w->right->height = 0;
+	if (isRoot(w))
+		return;
+	TreeNode* y, * x;
+	TreeNode* z = w->parent;
+	while (updateHeight(z) && isBalanced(z))
+	{
+		if (isRoot(z))
+			return;
+		z = parent(z);
+	}
+	if (isBalanced(z))
+		return;
+
+	// Fix imbalance
+	if (z->left->height > z->right->height)
+		y = z->left;
+	else
+		y = z->right;
+
+	if (y->left->height > y->right->height)
+		x = y->left;
+	else
+		x = y->right;
+
+	restructure(root,x, y, z);
+	return;
+}
+void insertItem(TreeNode** root, int key)
+{
+	TreeNode* w = treeSearch(*root, key);
 	if (isInternal(w))// 내부 노드일때는 그냥 반환
 		return;
 	else
 	{
 		w->key = key;
 		expandExternal(w);
+		searchAndFixAfterInsertion(root, w);
 		return;
 	}
 }
@@ -121,6 +244,45 @@ TreeNode* inOrderSucc(TreeNode* w)
 		w = leftChild(w);
 	return w;
 }
+
+void searchAndFixAfterRemoval(TreeNode**root, TreeNode* z)
+{
+	TreeNode* x, * y;
+	//Update heights and search for imbalance
+	while (updateHeight(z) && isBalanced(z))
+	{
+		if (isRoot(z))
+			return;
+		z = parent(z);
+	}
+	if (isBalanced(z))
+		return;
+
+	// Fix imbalance
+	if (z->left->height > z->right->height)
+		y = z->left;
+	else
+		y = z->right;
+
+	if (y->left->height > y->right->height)
+		x = y->left;
+	else if (y->left->height < y->right->height)
+		x = y->right;
+	else
+	{
+		if (z->left == y)
+			x = y->left;
+		else if (z->right == y)
+			x = y->right;
+	}
+	TreeNode* b = restructure(root, x, y, z);
+	if (isRoot(b))
+		return;
+	searchAndFixAfterRemoval(root, b->parent);
+
+}
+
+
 TreeNode* reduceExternal(TreeNode** root, TreeNode* z)// 이 부분에서 많이 고침
 {
 	TreeNode* w = z->parent;
@@ -147,22 +309,23 @@ TreeNode* reduceExternal(TreeNode** root, TreeNode* z)// 이 부분에서 많이 고침
 int removeElement(TreeNode** root, int key)
 {
 	TreeNode* w = treeSearch(*root, key);
+	TreeNode* zs;
 	if (isExternal(w))
 		return NoSuchKey;
 	int e = w->key;
 	TreeNode* z = leftChild(w);
 	if (!isExternal(z))
-		z = rightChild(w);
+		z = rightChild(w); 
 	if (isExternal(z))
-		reduceExternal(root, z);
+		zs = reduceExternal(root, z);// 수정
 	else
 	{
 		TreeNode* y = inOrderSucc(w);
 		z = leftChild(y);
 		w->key = y->key;
-		reduceExternal(root, z);
+		zs = reduceExternal(root, z);// 수정
 	}
-
+	searchAndFixAfterRemoval(root, parent(zs));// 수정
 	return e;
 }
 
@@ -180,7 +343,7 @@ int main() {
 		case 'i':
 			scanf("%d", &num);
 			getchar();
-			insertItem(root, num);
+			insertItem(&root, num);
 			break;
 		case 'd':
 			scanf("%d", &num);

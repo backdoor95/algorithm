@@ -1,4 +1,6 @@
 ﻿  memo.cpp
-C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(42,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(47,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(177,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(182,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(187,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\메모장\memo.cpp(196,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   메모장.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\메모장.exe
