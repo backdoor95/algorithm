@@ -1,217 +1,285 @@
 #include<stdio.h>
+
 #include<stdlib.h>
-#include<stdbool.h>
-#define NoSuchKey 404404
-typedef struct TreeNode {
+
+
+
+struct node {
+
+	int number;
+
+	struct node* next;
+
+};
+
+
+
+struct node* hashTable;
+
+int M;
+
+
+
+int h(int x) {
+
+	return x;
+
+}
+
+
+
+void insertItem(int x) {
+
+	int v = h(x);
+
+	struct node* p = hashTable + v;
+
+	struct node* newnode = (struct node*)malloc(sizeof(struct node));
+
+	newnode->number = x;
+
+	newnode->next = NULL;
+
+	if (p->next == NULL) {
+
+		p->next = newnode;
+
+	}
+
+	else {
+
+		newnode->next = p->next;
+
+		p->next = newnode;
+
+	}
+
+}
+
+
+
+int searchItem(int x) {
+
+	int v = h(x), count = 0;
+
+	struct node* p = hashTable + v;
+
+	if (p->next == NULL) {
+
+		return 0;
+
+	}
+
+	else {
+
+		while (1) {
+
+			p = p->next;
+
+			count++;
+
+			if (p->number == x) {
+
+				return count;
+
+			}
+
+			if (p->next == NULL) {
+
+				return 0;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+int deleteItem(int x) {
+
+	int v = h(x), count = 0;
+
+	struct node* pt = hashTable + v, * p = hashTable + v;
+
+	if (p->next == NULL) {
+
+		return 0;
+
+	}
+
+	else {
+
+		while (1) {
+
+			p = p->next;
+
+			count++;
+
+			if (p->number == x) {
+
+				while (pt->next != p) {
+
+					pt = pt->next;
+
+				}
+
+				pt->next = p->next;
+
+				free(p);
+
+				return count;
+
+			}
+
+			if (p->next == NULL) {
+
+				return 0;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+void printTable() {
+
+	struct node* p;
+
+	for (int i = 0; i < M; i++) {
+
+		p = hashTable + i;
+
+		if (p->next != NULL) {
+
+			p = p->next;
+
+			printf(" %d", p->number);
+
+			while (p->next != NULL) {
+
+				p = p->next;
+
+				printf(" %d", p->number);
+
+			}
+
+		}
+
+	}
+
+	printf("\n");
+
+}
+
+
+
+void freeTable() {
+
+	struct node* p, * q;
+
+	for (int i = 0; i < M; i++) {
+
+		if ((hashTable + i)->next != NULL) {
+
+			p = (hashTable + i)->next;
+
+			q = p;
+
+			while (q->next != NULL) {
+
+				p = p->next;
+
+				free(q);
+
+				q = p;
+
+			}
+
+		}
+
+	}
+
+	free(hashTable);
+
+}
+
+
+
+void main() {
+
 	int key;
-	struct TreeNode* parent;
-	struct TreeNode* left;
-	struct TreeNode* right;
-}TreeNode;
-TreeNode* leftChild(TreeNode* v)
-{
-	return v->left;
-}
-TreeNode* rightChild(TreeNode* v)
-{
-	return v->right;
-}
-void invalidNodeException()
-{
-	printf("invalidNodeException\n");
-	exit(1);
-}
-bool isRoot(TreeNode* v)
-{
-	if (v->parent == NULL)
-		return true;
-	else
-		return false;
-}
-TreeNode* parent(TreeNode* v)
-{
-	return v->parent;
-}
-TreeNode* sibling(TreeNode* root, TreeNode* w)
-{
 
-	if (leftChild(parent(w)) == w)
-		return rightChild(parent(w));
-	else
-		return leftChild(parent(w));
-}
-bool isExternal(TreeNode* w)
-{
-	if (w->left == NULL && w->right == NULL)
-		return true;
-	else
-		return false;
-}
-bool isInternal(TreeNode* w)
-{
-	if (w->left != NULL && w->right != NULL)// ||을 &&로 수정함.
-		return true;
-	else
-		return false;
-}
+	char select;
 
-TreeNode* treeSearch(TreeNode* v, int key)
-{
-	if (isExternal(v))
-		return v;
+	scanf("%d", &M);
 
-	if (key == v->key)
-		return v;
-	else if (key < v->key)
-		return treeSearch(v->left, key);
-	else
-		return treeSearch(v->right, key);
+	hashTable = (struct node*)malloc(sizeof(struct node) * M);
 
-}
-int findElement(TreeNode* root, int key)
-{
-	TreeNode* w = treeSearch(root, key);
-	if (isExternal(w))
-		return NoSuchKey;
-	else
-		return w->key;
-}
-void preOrder(TreeNode* root)
-{
-	if (isExternal(root))
-		return;
-	printf(" %d", root->key);
-	preOrder(root->left);
-	preOrder(root->right);
+	for (int i = 0; i < M; i++) {
 
-}
-void expandExternal(TreeNode* z)
-{
-	TreeNode* L = (TreeNode*)malloc(sizeof(TreeNode));
-	TreeNode* R = (TreeNode*)malloc(sizeof(TreeNode));
+		(hashTable + i)->number = NULL;
 
-	L->left = NULL;
-	L->right = NULL;
-	R->left = NULL;
-	R->right = NULL;
-	L->parent = z;
-	R->parent = z;
-	z->left = L;
-	z->right = R;
-	return;
-}
-void insertItem(TreeNode* root, int key)
-{
-	TreeNode* w = treeSearch(root, key);
-	if (isInternal(w))// 내부 노드일때는 그냥 반환
-		return;
-	else
-	{
-		w->key = key;
-		expandExternal(w);
-		return;
-	}
-}
-TreeNode* inOrderSucc(TreeNode* w)
-{
-	w = rightChild(w);
-	if (isExternal(w))
-		invalidNodeException();
-	while (isInternal(leftChild(w)))
-		w = leftChild(w);
-	return w;
-}
-TreeNode* reduceExternal(TreeNode** root, TreeNode* z)// 이 부분에서 많이 고침
-{
-	TreeNode* w = z->parent;
-	TreeNode* zs = sibling(*root, z);
+		(hashTable + i)->next = NULL;
 
-	if (isRoot(w))
-	{
-		*root = zs;
-		zs->parent = NULL;
-	}
-	else
-	{
-		TreeNode* g = w->parent;
-		zs->parent = g;
-		if (w == g->left)
-			g->left = zs;
-		else
-			g->right = zs;
-	}
-	free(w);
-	free(z);
-	return zs;
-}
-int removeElement(TreeNode** root, int key)
-{
-	TreeNode* w = treeSearch(*root, key);
-	if (isExternal(w))
-		return NoSuchKey;
-	int e = w->key;
-	TreeNode* z = leftChild(w);
-	if (!isExternal(z))
-		z = rightChild(w);
-	if (isExternal(z))
-		reduceExternal(root, z);
-	else
-	{
-		TreeNode* y = inOrderSucc(w);
-		z = leftChild(y);
-		w->key = y->key;
-		reduceExternal(root, z);
 	}
 
-	return e;
-}
+	while (1) {
 
-int main() {
-	TreeNode* root = (TreeNode*)malloc(sizeof(TreeNode));// root 생성
-	root->parent = root->left = root->right = NULL;
-	char menu;
-	int num, e;
-	while (1)
-	{
-		scanf("%c", &menu);
+		scanf("%c", &select);
 
-		switch (menu)
-		{
-		case 'i':
-			scanf("%d", &num);
+		if (select == 'i') {
+
+			scanf("%d", &key);
+
+			insertItem(key);
+
 			getchar();
-			insertItem(root, num);
-			break;
-		case 'd':
-			scanf("%d", &num);
+
+		}
+
+		else if (select == 's') {
+
+			scanf("%d", &key);
+
+			printf("%d\n", searchItem(key));
+
 			getchar();
-			e = removeElement(&root, num);
-			if (e == NoSuchKey)
-				printf("X\n");
-			else
-				printf("%d\n", e);
-			break;
-		case 's':
-			scanf("%d", &num);
+
+		}
+
+		else if (select == 'd') {
+
+			scanf("%d", &key);
+
+			printf("%d\n", deleteItem(key));
+
 			getchar();
-			e = findElement(root, num);
-			if (e == NoSuchKey)
-				printf("X\n");
-			else
-				printf("%d\n", e);
-			break;
-		case 'p':
+
+		}
+
+		else if (select == 'p') {
+
+			printTable();
+
 			getchar();
-			preOrder(root);
-			printf("\n");
-			break;
-		case 'q':
-			getchar();
-			return 0;
+
+		}
+
+		else if (select == 'e') {
+
 			break;
 
 		}
+
 	}
 
-	return 0;
+	freeTable();
+
 }

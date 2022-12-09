@@ -1,0 +1,7 @@
+﻿  9-3(1).cpp
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(46,10): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'bucket'입니다.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(95,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(100,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(104,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(108,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  9주차-3번.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\9주차-3번.exe

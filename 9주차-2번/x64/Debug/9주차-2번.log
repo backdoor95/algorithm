@@ -1,0 +1,6 @@
+﻿  9-2(1).cpp
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-2번\9-2(1).cpp(85,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-2번\9-2(1).cpp(91,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-2번\9-2(1).cpp(95,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-2번\9-2(1).cpp(99,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  9주차-2번.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\9주차-2번.exe
