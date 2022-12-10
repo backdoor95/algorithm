@@ -32,7 +32,7 @@ bool isEmpty(bucket* b)
 }
 // double Hashing// 괄호 주의할것!
 int getNextBucket(int v, int i)
-{
+{// v == HashFunction_1 이다.
 	return (v + (i*HashFunction_2(key))) % M;
 }
 void overflowException()
