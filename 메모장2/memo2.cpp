@@ -1,55 +1,30 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertItem(int* A, int N)
+void func2(int* v1, int* v2)
 {
-	for (int i = 0; i < N; i++)// 입력
-	{
-		scanf("%d", &A[i]);
-	}
+	printf(" v1 가 저장하고 있는 주소 = %p\n", v1);
+	printf(" v2 가 저장하고 있는 주소 = %p\n", v2);
+	printf("\n\n");
 }
-int rFE(int* A, int k, int left, int right)
+void func1(int* v1, int* v2)
 {
-
-	if (left > right)// base case
-	{
-			return -1;
-	}
-	if (left == right)
-	{
-		if (k < A[right]) return left - 1;
-		else if (k > A[right]) return left;
-
-	}
-	
-	int mid = (left + right) / 2;
-	if (k == A[mid])
-		return mid;
-	else if (k < A[mid])
-		return rFE(A, k, left, mid - 1);
-	else if (k > A[mid])
-		return rFE(A, k, mid + 1, right);
-
+	printf(" v1 가 저장하고 있는 주소 = %p\n", v1);
+	printf(" v2 가 저장하고 있는 주소 = %p\n", v2);
+	printf("\n\n");
+	func2(v1, v2);
 }
-void Print(int* A, int N)
-{
-	for (int i = 0; i < N; i++)
-		printf(" %d", A[i]);
-}
-int findElement(int*A,int k, int N)
-{
-	return rFE(A, k, 0, N - 1);
-}
-int main()
-{
-	int k, n;
+int main() {
 
-	scanf("%d %d", &n, &k);
+	int n = 4;
 
-	int* arr = (int*)malloc(sizeof(int) * n);
-	insertItem(arr, n);
+	int* v1 = &n;
+	int* v2 = &n;
 
-	printf("%d\n", findElement(arr, k, n));
-	//Print(arr, n);
+	printf(" v1 가 저장하고 있는 주소 = %p\n", v1);
+	printf(" v2 가 저장하고 있는 주소 = %p\n", v2);
+	printf("\n\n");
+	func1(v1, v2);
+
 	return 0;
 }
