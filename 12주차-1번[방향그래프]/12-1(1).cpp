@@ -10,7 +10,7 @@ typedef struct Edge
 }Edge;
 typedef struct IncidentEdge
 {
-	int element;
+	int element;// 정점에다가 해당 간선의 인덱스 저장
 	struct IncidentEdge* next;
 }IncidentEdge;
 typedef struct Vertex
@@ -48,7 +48,7 @@ int index(char vName)
 void addFirst(IncidentEdge* H, int i)
 {
 	IncidentEdge* node = (IncidentEdge*)malloc(sizeof(IncidentEdge));
-	node->element = i;
+	node->element = i;// 간선 인덱스 저장?>
 	
 	node->next = H->next;
 	H->next = node;
@@ -187,7 +187,7 @@ void topologicalSort()// 위상 정렬 알고리즘
 		p = p->next;
 		while (p != NULL)
 		{
-			int w = G.edges[p->element].destinationVertexIndex;
+			int w = G.edges[p->element].destinationVertexIndex;// 간선 e의 종점
 			in[w] = in[w] - 1;
 			if (in[w] == 0)
 				enqueue(&Q, G.vertices[w]);
