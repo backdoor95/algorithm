@@ -1,0 +1,3 @@
+﻿  3-1.cpp
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\3주차\3-1.cpp(84,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3주차.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\03주차-1번.exe

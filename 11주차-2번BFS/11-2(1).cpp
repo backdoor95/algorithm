@@ -160,14 +160,14 @@ queNode* dequeue(Que* Q)
 		Q->r = NULL;
 	return p;
 }
-void BFS(Graph* G, Que *Q, int start)
+void BFS(Graph* G, Que* Q, int start)
 {
 	Vertex* s = findVertex(G, start);// s는 start의 약자이다.
 	enqueue(Q, s);
-	
+
 	while (!isEmpty(Q))
 	{
-		queNode *p = dequeue(Q);
+		queNode* p = dequeue(Q);
 		p->v->vLable = Visited;
 		Vertex* v = p->v;
 		printf("%d\n", v->VertexNodeNumber);
@@ -183,6 +183,7 @@ void BFS(Graph* G, Que *Q, int start)
 					{
 						e->eLable = Tree;
 						w->vLable = Visited;
+						//printf("%d\n", v->VertexNodeNumber);
 						enqueue(Q, w);
 					}
 					else
@@ -191,7 +192,7 @@ void BFS(Graph* G, Que *Q, int start)
 					}
 				}
 			}
-			
+
 		}
 		freeQueNode(p);
 	}

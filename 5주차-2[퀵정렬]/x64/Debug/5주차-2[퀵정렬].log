@@ -1,6 +1,7 @@
-﻿  5-2.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(5주차-2[퀵정렬].vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  5-2.cpp
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\5주차-2[퀵정렬]\5-2.cpp(15,13): warning C4101: 'tmp' :참조되지 않은 지역 변수입니다.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\5주차-2[퀵정렬]\5-2.cpp(41,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\5주차-2[퀵정렬]\5-2.cpp(43,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\5주차-2[퀵정렬]\5-2.cpp(46,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  5주차-2[퀵정렬].vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\5주차-2[퀵정렬].exe
+  5주차-2[퀵정렬].vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\05주차-2[퀵정렬].exe

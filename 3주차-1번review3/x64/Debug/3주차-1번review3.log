@@ -1,0 +1,4 @@
+﻿  3-1_r3.cpp
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\3주차-1번review3\3-1_r3.cpp(124,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\3주차-1번review3\3-1_r3.cpp(128,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  3주차-1번review3.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\03주차-1번review3.exe

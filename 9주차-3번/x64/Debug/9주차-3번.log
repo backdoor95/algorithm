@@ -1,7 +1,8 @@
-﻿  9-3(1).cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(9주차-3번.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  9-3(1).cpp
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(46,10): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'bucket'입니다.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(95,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(100,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(104,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\JH\Desktop\코테\rookiss\220901algorithm\9주차-3번\9-3(1).cpp(108,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  9주차-3번.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\9주차-3번.exe
+  9주차-3번.vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\09주차-3번.exe
