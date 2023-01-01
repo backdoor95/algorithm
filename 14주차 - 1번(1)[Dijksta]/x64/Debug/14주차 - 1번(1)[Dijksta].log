@@ -1,0 +1,4 @@
+﻿  14-1(1).cpp
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\14주차 - 1번(1)[Dijksta]\14-1(1).cpp(284,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\JH\Desktop\코테\rookiss\220901algorithm\14주차 - 1번(1)[Dijksta]\14-1(1).cpp(292,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  14주차 - 1번(1)[Dijksta].vcxproj -> C:\Users\JH\Desktop\코테\rookiss\220901algorithm\x64\Debug\14주차 - 1번(1)[Dijksta].exe

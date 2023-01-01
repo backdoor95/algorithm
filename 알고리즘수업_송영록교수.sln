@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13주차-1번[Prim-Jarnik]"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13주차-2번[Kruskal]", "13주차-2번[Kruskal]\13주차-2번[Kruskal].vcxproj", "{EA065966-79EF-48B3-B683-00A9E6858B30}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14주차 - 1번(1)[Dijksta]", "14주차 - 1번(1)[Dijksta]\14주차 - 1번(1)[Dijksta].vcxproj", "{9ECFD883-C668-44DF-868E-BA349DC814C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -331,6 +333,14 @@ Global
 		{EA065966-79EF-48B3-B683-00A9E6858B30}.Release|x64.Build.0 = Release|x64
 		{EA065966-79EF-48B3-B683-00A9E6858B30}.Release|x86.ActiveCfg = Release|Win32
 		{EA065966-79EF-48B3-B683-00A9E6858B30}.Release|x86.Build.0 = Release|Win32
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Debug|x64.ActiveCfg = Debug|x64
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Debug|x64.Build.0 = Debug|x64
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Debug|x86.Build.0 = Debug|Win32
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Release|x64.ActiveCfg = Release|x64
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Release|x64.Build.0 = Release|x64
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Release|x86.ActiveCfg = Release|Win32
+		{9ECFD883-C668-44DF-868E-BA349DC814C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
