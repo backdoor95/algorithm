@@ -213,7 +213,6 @@ int findParent(int parent[], int a, int b)
 	if (a == b) return 1;
 	return 0;
 }
-
 void KruskalMST(Graph* G, int n)
 {
 	Que Q;
